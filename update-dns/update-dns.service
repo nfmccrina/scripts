@@ -1,0 +1,9 @@
+[Unit]
+Description=Retrieve external ip address from ident.me and update Cloudflare DNS record
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/update-dns/bin/python /usr/local/bin/update-dns/main.py
+LoadCredential=api_token:/etc/cloudflare_api_token.txt
+Environment=CLOUDFLARE_EMAIL=nathan.mccrina@outlook.com
+Environment=CLOUDFLARE_ZONE_ID=eff889de1ffd73922d298e9163364ce8
